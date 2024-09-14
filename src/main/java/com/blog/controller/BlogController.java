@@ -1,5 +1,6 @@
 package com.blog.controller;
 
+import jakarta.persistence.Table;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +13,6 @@ public class BlogController {
 
     @GetMapping("/")
     public String login(String username,String password){
-
 
         return "hello";
     }
