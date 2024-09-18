@@ -5,8 +5,11 @@ import com.blog.entity.PostBlogEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
-public interface BlogRepository extends JpaRepository<PostBlogEntity, Login> {
+import java.util.Optional;
 
+@Repository
+public interface PostBlogRepository extends JpaRepository<PostBlogEntity, Long> {
+
+   Optional<PostBlogEntity> findById(Long id);
 
 }

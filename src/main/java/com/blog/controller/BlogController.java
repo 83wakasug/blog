@@ -1,21 +1,24 @@
 package com.blog.controller;
 
-import jakarta.persistence.Table;
-import org.springframework.stereotype.Controller;
+import com.blog.entity.PostBlogEntity;
+import com.blog.service.PostService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/blog/index")
-
+@RequiredArgsConstructor
 
 public class BlogController {
 
-    @GetMapping("/")
-    public List<String> ShowBlog(){
+   private final PostService postService;
 
-        return
+    @GetMapping("/")
+    public Optional<PostBlogEntity> ShowBlog(Long id){
+
+        return postService.getBlogById(id);
 
     }
 
@@ -23,6 +26,7 @@ public class BlogController {
     @PostMapping("/")
     public String Updateblog(String blogContents){
 
+        return "hello";
     }
 
 
