@@ -4,19 +4,26 @@ import jakarta.persistence.Table;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+import java.util.List;
+
+@RestController
 @RequestMapping("/blog/index")
 
 
 public class BlogController {
 
-
     @GetMapping("/")
-    public String login(String username,String password){
+    public List<String> ShowBlog(){
 
-        return "hello";
+        return
+
     }
 
+
+    @PostMapping("/")
+    public String Updateblog(String blogContents){
+
+    }
 
 
 
