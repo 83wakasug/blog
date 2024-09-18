@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -22,6 +24,23 @@ public class PostService {
 
         return Optional.of(postBlogRepository.getReferenceById(id));
 
+    }
+
+
+    public List<PostBlogEntity> getAll(){
+        return postBlogRepository.findAll();
+
+    }
+
+    public PostBlogEntity save(PostBlogEntity postBlogEntity){
+
+        if(postBlogEntity.getId() == null){
+
+            postBlogEntity.setCreatedAT(LocalDateTime.now());
+
+        }
+
+        return postBlogRepository.save(postBlogEntity);
     }
 
 
