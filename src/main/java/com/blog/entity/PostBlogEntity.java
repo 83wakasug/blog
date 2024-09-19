@@ -1,6 +1,7 @@
 package com.blog.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import org.springframework.boot.autoconfigure.web.WebProperties;
 
@@ -20,6 +21,11 @@ public class PostBlogEntity {
     private String body;
 
     private LocalDateTime createdAT;
+
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "userInfo_id", referencedColumnName = "id" , nullable = false)
+    private UserInfo userInfo;
 
 
 }

@@ -14,11 +14,12 @@ import java.util.Optional;
 public class BlogController {
 
    private final PostService postService;
+   public Optional<PostBlogEntity> postBlogEntity;
 
-    @GetMapping("/")
-    public Optional<PostBlogEntity> ShowBlog(Long id){
-
-        return postService.getBlogById(id);
+    @GetMapping("/{id}")
+    public String ShowBlog(@PathVariable Long id){
+        postBlogEntity = postService.getBlogById(id);
+        return postBlogEntity.get().getBody();
 
     }
 
