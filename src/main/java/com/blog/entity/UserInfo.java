@@ -19,6 +19,7 @@ public class UserInfo {
   private String password;
   private String firstName;
   private String lastName;
+  private String country;
 
   @OneToMany(mappedBy = "userInfo")
  private List<UserInfo> userInfoList;
